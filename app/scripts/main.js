@@ -73,4 +73,14 @@
   }
 
   // Your custom JavaScript goes here
+  function toFahrenheit(num){return (num-32)*5/9;}
+  function toCelsius(num){return num*9/5+32;}
+  /*! Get location on load
+  * get weather for location
+  * lookup weather icon (wi to "icon":"04n" in the JSON reponse)
+  * update temp, humidity, icon
+  * look for location refresh click, onclick(getWeather)
+  */
+
+
 })();
