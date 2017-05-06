@@ -15,8 +15,9 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License
  *
- */
 /* eslint-env browser */
+*/
+
 (function() {
   'use strict';
 
@@ -75,7 +76,35 @@
   // Your custom JavaScript goes here
   function toFahrenheit(num){return (num-32)*5/9;}
   function toCelsius(num){return num*9/5+32;}
-  /*! Get location on load
+
+  // geoposition components
+  var geoOptions = {
+    enableHighAccuracy: false,
+    timeout: 5000,
+    maximumAge: 0
+  };
+
+  function geoSuccess(pos) {
+    var crd = pos.coords;
+    // make this replace the coords in an array.
+    console.log(pos.coords);
+  }
+
+  function geoError(err) {
+    console.warn(`ERROR(${err.code}): ${err.message}`);
+  }
+
+  function loadLocation() {
+    navigator.geolocation.getCurrentPosition(geoSuccess, geoError, geoOptions);
+  }
+  // Get Position Button
+  document.getElementById("locationRefresh").addEventListener("click", loadLocation);
+
+// trim coords to int not float
+//construct API call: 'api.openweathermap.org/data/2.5/weather?lat=num&lon=num'
+// return API call into a JSON object
+
+  /*
   * get weather for location
   * lookup weather icon (wi to "icon":"04n" in the JSON reponse)
   * update temp, humidity, icon
