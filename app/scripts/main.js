@@ -15,7 +15,6 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License
  *
-/* eslint-env browser */
 */
 
 (function() {
@@ -85,9 +84,9 @@
   };
 
   function geoSuccess(pos) {
-    var crd = pos.coords;
-    // make this replace the coords in an array.
-    console.log(pos.coords);
+    var lat = Math.round(pos.coords.latitude);
+    var lon = Math.round(pos.coords.longitude);
+    console.log("coordinates",[lat, lon]);
   }
 
   function geoError(err) {
@@ -100,7 +99,7 @@
   // Get Position Button
   document.getElementById("locationRefresh").addEventListener("click", loadLocation);
 
-// trim coords to int not float
+// bring in jQuery
 //construct API call: 'api.openweathermap.org/data/2.5/weather?lat=num&lon=num'
 // return API call into a JSON object
 
