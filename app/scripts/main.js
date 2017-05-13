@@ -99,9 +99,10 @@
   // Get Position Button
   document.getElementById("locationRefresh").addEventListener("click", loadLocation);
 
-// bring in jQuery
 //construct API call: 'api.openweathermap.org/data/2.5/weather?lat=num&lon=num'
+// API Key= 4cf4213dce2223b974b5fd0625b3ca7b
 // return API call into a JSON object
+// API rate limited to 1 request/10 minutes
 
   /*
   * get weather for location
