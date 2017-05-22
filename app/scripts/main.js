@@ -73,8 +73,8 @@
   }
 
   // Your custom JavaScript goes here
-  function toFahrenheit(num){return (num-32)*5/9;}
-  function toCelsius(num){return num*9/5+32;}
+  function toFahrenheit(kelvin){return kelvin * (9/5) - 459.67;}
+  function toCelsius(kelvin){return kelvin - 273.15;}
 
   // Geoposition getter
   var geoOptions = {
