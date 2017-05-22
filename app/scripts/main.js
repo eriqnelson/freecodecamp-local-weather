@@ -93,6 +93,7 @@
     function getWeather(){$.getJSON(request, function(data){console.log(data)});}
     // TODO store this position to the service worker for later lookup
       getWeather();
+    // TODO redefine the console logging anonymous function of getWeather to update the current weather status on the page.
   }
   function geoError(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
