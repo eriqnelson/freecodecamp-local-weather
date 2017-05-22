@@ -76,7 +76,7 @@
   function toFahrenheit(num){return (num-32)*5/9;}
   function toCelsius(num){return num*9/5+32;}
 
-  // Geoposition components
+  // Geoposition getter
   var geoOptions = {
     enableHighAccuracy: false,
     timeout: 5000,
@@ -86,11 +86,11 @@
   function geoSuccess(pos) {
     latitude = pos.coords.latitude;
     longitude = pos.coords.longitude;
-    console.log("coordinates from geoSuccess",[latitude, longitude]);
-    function getWeather(){$.getJSON(request,DATA, CALLBACK);}
+    getWeather();
+    // console.log("coordinates from geoSuccess",[latitude, longitude]);
+
     // TODO store this position to the service worker for later lookup
   }
-
   function geoError(err) {
     console.warn(`ERROR(${err.code}): ${err.message}`);
   }
@@ -100,14 +100,22 @@
   }
   // Get Position Button
   document.getElementById("locationRefresh").addEventListener("click", loadLocation);
-
+  //Load location on pageload, otherwise nothing works.
   $(document).ready(loadLocation());
+
+  // Weather condition getter
+  var latitude = -37.110827;
+  var longitude = -12.286784;
+  //No geolocation data puts you in the cinder cone of Tristan da Cunha
+  var key = '4cf4213dce2223b974b5fd0625b3ca7b';
+  var request = 'http://api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude +'&appid=' + key;
+function getWeather(){$.getJSON(request, function(data){console.log(data)});}
+
   // Maybe make this an anonymous function if I need to call multiple things.
 
 //construct API call: 'api.openweathermap.org/data/2.5/weather?lat=num&lon=num'
 // API Key= 4cf4213dce2223b974b5fd0625b3ca7b
-var key = '4cf4213dce2223b974b5fd0625b3ca7b';
-var request = 'api.openweathermap.org/data/2.5/weather?lat=' + latitude + '&lon=' + longitude +'&appid=' + key;
+
   /*
   * get weather for location
   * lookup weather icon (wi to "icon":"04n" in the JSON reponse)
