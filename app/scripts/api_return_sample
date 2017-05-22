@@ -1,0 +1,41 @@
+{
+  "coord": {
+    "lon": 77,
+    "lat": 45
+  },
+  "weather": [
+    {
+      "id": 800,
+      "main": "Clear",
+      "description": "clear sky",
+      "icon": "01n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 287.723,
+    "pressure": 971.49,
+    "humidity": 31,
+    "temp_min": 287.723,
+    "temp_max": 287.723,
+    "sea_level": 1017.98,
+    "grnd_level": 971.49
+  },
+  "wind": {
+    "speed": 2.33,
+    "deg": 162.501
+  },
+  "clouds": {
+    "all": 0
+  },
+  "dt": 1495481766,
+  "sys": {
+    "message": 0.0034,
+    "country": "KZ",
+    "sunrise": 1495408517,
+    "sunset": 1495462967
+  },
+  "id": 1525846,
+  "name": "Baqbaqty",
+  "cod": 200
+}
